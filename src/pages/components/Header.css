@@ -1,0 +1,25 @@
+.header {
+  position: relative; /* Necesario para la posición del overlay */
+  height: 300px; /* Ajusta la altura según sea necesario */
+  overflow: hidden; /* Asegura que el overlay no sobresalga */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.background-overlay {
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
+    url("./Header.jpg"); /* Ajusta la ruta de la imagen */
+}
+
+.header-content {
+  position: relative;
+  color: white; /* Ajusta el color del texto si es necesario */
+  text-align: center; /* Opcional: centra el contenido */
+}
