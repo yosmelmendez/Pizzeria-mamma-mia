@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Form, InputGroup } from "react-bootstrap";
 
 const RegisterPage = () => {
   const [email, setEmail] = useState("");
