@@ -23,3 +23,71 @@
   color: white; /* Ajusta el color del texto si es necesario */
   text-align: center; /* Opcional: centra el contenido */
 }
+
+/* styles.css */
+.profile-container {
+  background: linear-gradient(
+    135deg,
+    #fff3e6,
+    #f8d7da
+  ); /* Fondo cálido y acogedor */
+  color: #343a40;
+}
+
+.profile-card {
+  background: #ffffff;
+  color: #495057;
+  width: 90%;
+  max-width: 400px;
+  border: 1px solid #e9ecef;
+}
+
+.profile-card h3 {
+  color: #007bff;
+}
+
+.profile-card p {
+  margin: 0.5rem 0;
+}
+
+.profile-card .btn {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.profile-card .btn:hover {
+  background-color: #c82333;
+  color: #fff;
+}
+
+/* styles.css */
+.not-found-container {
+  background: #fff3e6; /* Un tono cálido, como el del horno */
+  color: #6c757d;
+}
+
+.not-found-container h1 {
+  font-size: 7rem;
+  font-weight: bold;
+  color: #dc3545; /* Rojo temático para resaltar el error */
+}
+
+.not-found-container p {
+  margin: 0.5rem 0;
+  font-family: "Comic Sans MS", cursive; /* Fuente divertida para mantener el tono */
+}
+
+.not-found-container .btn {
+  background-color: #ffc107; /* Amarillo tipo queso */
+  color: #fff;
+  padding: 0.5rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.not-found-container .btn:hover {
+  background-color: #fd7e14; /* Naranja tipo masa de pizza */
+  color: #fff;
+}
