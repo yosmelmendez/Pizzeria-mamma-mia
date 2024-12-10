@@ -29,6 +29,7 @@ const LoginPage = () => {
 
   return (
     <div className="container mt-4 mb-4">
+      <h3>Inicia sesión</h3>
       <form className="formulario" onSubmit={handleLogin}>
         {error && <p className="text-danger">{error}</p>}
         {success && <p className="text-success">Inicio de sesión exitoso.</p>}

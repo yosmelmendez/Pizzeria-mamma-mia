@@ -15,7 +15,7 @@ const Pizza = () => {
   }, []);
 
   return (
-    <div className="m-2 border border-dark rounded d-flex flex-column">
+    <div className="m-2 border border-dark rounded d-flex flex-column shadow-lg">
       <div className="d-flex container-fluid justify-content-around p-4 align-items-center">
         <div>
           <img src={pizza.img} alt={pizza.id} width={300} />

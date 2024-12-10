@@ -9,6 +9,7 @@ const Header = () => {
       <div className="header-content">
         <h1>¡Pizzeria Mamma Mia!</h1>
         <p>¡Tenemos las mejores pizzas que podrás encontrar!</p>
+        <hr />
       </div>
     </div>
   );

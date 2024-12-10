@@ -26,7 +26,7 @@ const Home = () => {
                 sm="12"
                 md="6"
                 lg="4"
-                className="mt-4 d-flex justify-content-center"
+                className="mt-4 d-flex justify-content-center pb-3"
               >
                 <Cardpizza key={pizza.id} pizza={pizza} />
               </Col>

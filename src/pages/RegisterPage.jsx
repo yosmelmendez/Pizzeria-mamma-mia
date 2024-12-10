@@ -38,6 +38,7 @@ const RegisterPage = () => {
   return (
     <>
       <div className="container mt-4">
+        <h3>Crea tu perfil</h3>
         <form className="formulario mt-4" onSubmit={validateData}>
           {error && <p className="text-danger">{error}</p>}
           {success && <p className="text-success">Registro exitoso.</p>}

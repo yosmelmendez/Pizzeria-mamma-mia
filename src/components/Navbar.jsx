@@ -7,36 +7,48 @@ import { FaPizzaSlice } from "react-icons/fa";
 import { IoIosLogIn } from "react-icons/io";
 import { SiGnuprivacyguard } from "react-icons/si";
 import { IoIosLogOut } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const total = 25000;
   const token = true;
   return (
-    <div className="d-flex justify-content-between bg-dark text-light">
+    <div className="d-flex justify-content-between bg-dark text-light align-items-center ">
       <div>
         {token ? (
           <div className="d-flex align-items-center">
-            <p className="m-1">Pizzería Mamma Mia!</p>
-            <Button variant="outline-light" className="btn-sm m-1 bg-dark">
-              <FaPizzaSlice />
-              Home
-            </Button>
-            <Button variant="outline-light" className="btn-sm m-1 bg-dark">
-              <IoIosLogIn />
-              Login
-            </Button>
-            <Button variant="outline-light" className="btn-sm m-1 bg-dark">
-              <SiGnuprivacyguard />
-              Register
-            </Button>
+            <Link to="/" className="m-1 text-decoration-none text-light">
+              Pizzería Mamma Mia!
+            </Link>
+            <Link
+              to="/"
+              className="btn btn-sm m-1 bg-dark text-decoration-none text-light border-light"
+            >
+              <FaPizzaSlice /> Home
+            </Link>
+            <Link
+              to="/loginpage"
+              className="btn btn-sm m-1 bg-dark text-decoration-none text-light border-light"
+            >
+              <IoIosLogIn /> Login
+            </Link>
+            <Link
+              to="/registerpage"
+              className="btn btn-sm m-1 bg-dark text-decoration-none text-light border-light"
+            >
+              <SiGnuprivacyguard /> Register
+            </Link>
           </div>
         ) : (
           <div className="m-1 d-flex">
             <p className="m-3">Pizzería Mamma Mia!</p>
-            <Button variant="outline-light" className=" btn-sm m-1 bg-dark">
+            <Link
+              to="/"
+              className="btn btn-sm m-1 text-decoration-none bg-dark"
+            >
               <FaPizzaSlice />
               Home
-            </Button>
+            </Link>
             <Button variant="outline-light" className="btn-sm m-1 bg-dark">
               <CgProfile />
               Profile
@@ -48,11 +60,19 @@ const Navbar = () => {
           </div>
         )}
       </div>
-      <div className="d-flex m-1">
-        <Button variant="outline-info" className="btn-sm bg-dark">
-          <IoCartOutline />
-          Total: ${format(total)}
-        </Button>
+      <div className="d-flex align-items-center">
+        <Link
+          to="/cart"
+          className="btn btn-sm bg-dark text-decoration-none m-1 text-info border-info"
+        >
+          <IoCartOutline /> Total: ${format(total)}
+        </Link>
+        <Link
+          to="/profile"
+          className="btn btn-sm m-1 text-decoration-none bg-dark text-light border-light"
+        >
+          <CgProfile /> Profile
+        </Link>
       </div>
     </div>
   );
