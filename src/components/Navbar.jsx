@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "react-bootstrap";
 import { format } from "../utils/format";
 import { IoCartOutline } from "react-icons/io5";
@@ -8,9 +8,10 @@ import { IoIosLogIn } from "react-icons/io";
 import { SiGnuprivacyguard } from "react-icons/si";
 import { IoIosLogOut } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 const Navbar = () => {
-  const total = 25000;
+  const { totalCart } = useContext(CartContext);
   const token = true;
   return (
     <div className="d-flex justify-content-between bg-dark text-light align-items-center ">
@@ -65,7 +66,7 @@ const Navbar = () => {
           to="/cart"
           className="btn btn-sm bg-dark text-decoration-none m-1 text-info border-info"
         >
-          <IoCartOutline /> Total: ${format(total)}
+          <IoCartOutline /> Total: ${format(totalCart)}
         </Link>
         <Link
           to="/profile"
