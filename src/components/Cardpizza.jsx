@@ -8,36 +8,11 @@ import { PiEyes } from "react-icons/pi";
 import { IoCartOutline } from "react-icons/io5";
 import { Button, CardBody } from "react-bootstrap";
 import { CartContext } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 const Cardpizza = ({ pizza, index }) => {
-  const { pizzaCount, setPizzaCount } = useContext(CartContext);
-  const { setTotalCart } = useContext(CartContext);
-  const { pizzas } = useContext(CartContext);
+  const { incrementCount } = useContext(CartContext);
 
-  function incrementCount(id) {
-    const existingPizza = pizzaCount.find((item) => item.id === id);
-
-    if (existingPizza) {
-      const updatedCart = pizzaCount.map((item) =>
-        item.id === id ? { ...item, count: item.count + 1 } : item
-      );
-      setPizzaCount(updatedCart);
-      calculateTotal(updatedCart);
-    } else {
-      const pizzaToAdd = pizzas.find((pizza) => pizza.id === id);
-      const newCart = [...pizzaCount, { ...pizzaToAdd, count: 1 }];
-      setPizzaCount(newCart);
-      calculateTotal(newCart);
-    }
-  }
-
-  function calculateTotal(updatedCart) {
-    const total = updatedCart.reduce(
-      (sum, pizza) => sum + pizza.price * pizza.count,
-      0
-    );
-    setTotalCart(total);
-  }
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Img variant="top" src={pizza.img} />
@@ -64,9 +39,9 @@ const Cardpizza = ({ pizza, index }) => {
             Precio: ${format(pizza.price)}
           </p>
           <div className="d-flex justify-content-between">
-            <Button variant="outline-dark" className="bg-light text-dark">
+            <Link to={`/pizza/${pizza.id}`} className="btn bg-light text-dark">
               Ver Más <PiEyes />
-            </Button>
+            </Link>
             <Button
               variant="outline-light"
               className="bg-dark text-light"

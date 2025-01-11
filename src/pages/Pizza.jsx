@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { format } from "../utils/format";
 import { Button } from "react-bootstrap";
 import { IoCartOutline } from "react-icons/io5";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useParams } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 const Pizza = () => {
   const [pizza, setPizza] = useState({});
+  const { id } = useParams();
+  const { incrementCount } = useContext(CartContext);
   useEffect(() => {
-    fetch("http://localhost:5001/api/pizzas/p001")
+    fetch(`http://localhost:5001/api/pizzas/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setPizza(data);
@@ -36,7 +40,11 @@ const Pizza = () => {
         </div>
       </div>
       <div className="d-flex justify-content-center mb-4">
-        <Button variant="dark" size="md">
+        <Button
+          variant="dark"
+          size="md"
+          onClick={() => incrementCount(pizza.id)}
+        >
           Añadir al carrito <IoCartOutline />
         </Button>
       </div>
