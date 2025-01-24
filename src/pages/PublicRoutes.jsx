@@ -3,9 +3,9 @@ import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
 function PublicRoutes({ children }) {
-  const { token } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
-  if (token) {
+  if (user) {
     return <Navigate to="/" />;
   }
 

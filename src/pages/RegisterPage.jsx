@@ -1,45 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
 const RegisterPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    error,
+    register,
+    success,
+    confirmPassword,
+    setConfirmPassword,
+  } = useContext(UserContext);
 
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
-
-  const validateData = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setError("");
-    setSuccess(false);
-
-    if (!email.trim() || !password.trim() || !confirmPassword.trim()) {
-      setError("Todos los campos son obligatorios.");
-      return;
-    }
-
-    if (password.length < 6) {
-      setError("La contraseña debe tener al menos 6 caracteres.");
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      setError("Las contraseñas no coinciden.");
-      return;
-    }
-
-    setSuccess(true);
-    setError(false);
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
+    register(email, password);
   };
 
   return (
     <>
       <div className="container mt-4">
         <h3>Crea tu perfil</h3>
-        <form className="formulario mt-4" onSubmit={validateData}>
+        <form className="formulario mt-4" onSubmit={handleSubmit}>
           {error && <p className="text-danger">{error}</p>}
           {success && <p className="text-success">Registro exitoso.</p>}
           <div className="form-group mt-3">

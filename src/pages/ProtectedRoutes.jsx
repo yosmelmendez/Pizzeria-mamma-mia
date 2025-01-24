@@ -3,8 +3,8 @@ import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
 function ProtectedRoutes({ children }) {
-  const { token } = useContext(UserContext);
-  if (!token) {
+  const { user } = useContext(UserContext);
+  if (!user) {
     return <Navigate to="/loginpage" />;
   }
   return <>{children}</>;
